@@ -20,20 +20,32 @@ function Dashboard() {
     };
 
     return (
-        <div>
-            <h2>Projects</h2>
-            <input placeholder="New project" value={newProjectName} onChange={e=>setNewProjectName(e.target.value)} />
-            <button onClick={createProject}>Create</button>
+        <div className="app-container">
+            <div className="topbar">
+                <div className="logo">Taskflow</div>
+                <div className="muted">Projects · {projects.length}</div>
+            </div>
 
-            <ul>
-                {projects.map(p => (
-                    <li key={p.ID} onClick={()=>setSelectedProject(p)}>
-                        {p.Name}
-                    </li>
-                ))}
-            </ul>
+            <div className="layout">
+                <div className="sidebar card">
+                    <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+                        <input className="input" placeholder="New project" value={newProjectName} onChange={e => setNewProjectName(e.target.value)} />
+                        <button className="btn" onClick={createProject}>Create</button>
+                    </div>
 
-            {selectedProject && <Tasks projectId={selectedProject.ID} />}
+                    <ul className="project-list">
+                        {projects.map(p => (
+                            <li key={p.ID} className={`project-item ${selectedProject && selectedProject.ID === p.ID ? 'active' : ''}`} onClick={() => setSelectedProject(p)}>
+                                {p.Name}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div className="main card">
+                    {selectedProject ? <Tasks projectId={selectedProject.ID} /> : <div className="muted">Select a project to view tasks</div>}
+                </div>
+            </div>
         </div>
     );
 }

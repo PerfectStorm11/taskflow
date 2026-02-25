@@ -29,15 +29,18 @@ function Tasks({ projectId }) {
     return (
         <div>
             <h3>Tasks</h3>
-            <input placeholder="New task" value={newTaskTitle} onChange={e=>setNewTaskTitle(e.target.value)} />
-            <button onClick={createTask}>Add</button>
 
-            <div style={{ display: "flex", gap: "20px" }}>
+            <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+                <input className="input" placeholder="New task" value={newTaskTitle} onChange={e => setNewTaskTitle(e.target.value)} />
+                <button className="btn" onClick={createTask}>Add</button>
+            </div>
+
+            <div className="tasks-columns">
                 {statuses.map(status => (
-                    <div key={status} style={{ border: "1px solid black", padding: "10px" }}>
+                    <div key={status} className="tasks-column">
                         <h4>{status.toUpperCase()}</h4>
                         {tasks.filter(t => t.Status === status).map(t => (
-                            <div key={t.ID}>{t.Title}</div>
+                            <div key={t.ID} className="card" style={{ marginBottom: 8, padding: 8 }}>{t.Title}</div>
                         ))}
                     </div>
                 ))}
