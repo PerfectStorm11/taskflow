@@ -19,11 +19,19 @@ function Login({ onLogin }) {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <input placeholder="Email" onChange={e => setEmail(e.target.value)} />
-            <input placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
-            <button onClick={handleLogin}>Login</button>
+        <div className="auth-wrap">
+            <div className="card auth-card">
+                <h2>Welcome back</h2>
+                <div className="muted">Sign in to continue to Taskflow</div>
+
+                <input className="input" placeholder="Email" onChange={e => setEmail(e.target.value)} />
+                <input className="input" placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
+
+                <div style={{ display: 'flex', gap: 8, marginTop: 6 }}>
+                    <button className="btn" onClick={handleLogin}>Login</button>
+                    <button className="btn secondary" onClick={() => navigate('/register')}>Create account</button>
+                </div>
+            </div>
         </div>
     );
 }

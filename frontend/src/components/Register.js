@@ -19,11 +19,19 @@ function Register() {
     };
 
     return (
-        <div>
-            <h2>Register</h2>
-            <input placeholder="Email" onChange={e=>setEmail(e.target.value)} />
-            <input placeholder="Password" type="password" onChange={e=>setPassword(e.target.value)} />
-            <button onClick={handleRegister}>Register</button>
+        <div className="auth-wrap">
+            <div className="card auth-card">
+                <h2>Create account</h2>
+                <div className="muted">Join Taskflow — organize your work</div>
+
+                <input className="input" placeholder="Email" onChange={e => setEmail(e.target.value)} />
+                <input className="input" placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
+
+                <div style={{ display: 'flex', gap: 8, marginTop: 6 }}>
+                    <button className="btn" onClick={handleRegister}>Register</button>
+                    <button className="btn secondary" onClick={() => navigate('/login')}>Back to login</button>
+                </div>
+            </div>
         </div>
     );
 }
