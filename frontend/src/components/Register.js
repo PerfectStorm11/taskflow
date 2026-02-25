@@ -35,12 +35,12 @@ function Register() {
                 <h2>Create account</h2>
                 <div className="muted">Join Taskflow — organize your work</div>
 
-                <input className="input" placeholder="Email" value={email} onChange={e=>setEmail(e.target.value)} />
-                <input className="input" placeholder="Password" type="password" value={password} onChange={e=>setPassword(e.target.value)} />
+                <input className="input" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+                <input className="input" placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
 
-                {error && <div style={{color:'#b91c1c', marginTop:6}}>{error}</div>}
+                {error && <div style={{ color: '#b91c1c', marginTop: 6 }}>{error}</div>}
 
-                <div style={{display:'flex',gap:8,marginTop:6}}>
+                <div style={{ display: 'flex', gap: 8, marginTop: 6 }}>
                     <button className="btn" onClick={handleRegister}>Register</button>
                     <button className="btn secondary" onClick={() => navigate('/login')}>Back to login</button>
                 </div>
