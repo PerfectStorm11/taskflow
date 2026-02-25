@@ -1,0 +1,28 @@
+/.DS_Store
+.DS_Store
+.idea/
+# Node
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+/dist
+/build
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+.log
+
+# Go
+/bin/
+
+# Mac
+.Spotlight-V100
+.Trashes
+
+# Editor directories
+.vscode/

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import API from "../services/api";
 import Tasks from "./Tasks";
 
@@ -19,11 +20,22 @@ function Dashboard() {
         setNewProjectName("");
     };
 
+    const navigate = useNavigate();
+
+    const logout = () => {
+        localStorage.removeItem('token');
+        navigate('/login');
+    }
+
     return (
         <div className="app-container">
             <div className="topbar">
                 <div className="logo">Taskflow</div>
-                <div className="muted">Projects · {projects.length}</div>
+                <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                    <div className="muted">Projects · {projects.length}</div>
+                    <Link to="/profile" style={{ textDecoration: 'none', color: '#2563eb' }}>Профиль</Link>
+                    <button className="btn secondary" onClick={logout}>Выйти</button>
+                </div>
             </div>
 
             <div className="layout">
