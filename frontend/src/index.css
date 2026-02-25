@@ -66,6 +66,15 @@ button:hover {
   margin: 32px auto;
   padding: 20px;
 }
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+  .auth-wrap { padding: 16px; }
+  .auth-card { padding: 16px; border-radius: 8px; }
+  .app-container { padding: 12px; }
+  .sidebar { display: none; }
+  .layout{ flex-direction:column; }
+  .input{ font-size:14px; }
+}
 
 .topbar {
   display: flex;
